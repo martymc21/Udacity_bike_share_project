@@ -59,3 +59,35 @@ def get_city():
 city, city_data = get_city()
 city, city_data
     
+#############################
+
+
+
+def get_time():
+    '''Allows the user to select a specific amount of time to use as filter. 
+    Args:
+        none.
+    Returns:
+        (str) inputted type of filter.
+    '''
+    # Ask user for input while incorrect input
+    
+    while True:
+        time_range = input('\nWould you like to filter the data: by month, day, both or, '
+                            'not at all? Type "none" for no time filter.'
+                            '(This next step will take some time.)\n').lower()
+       
+    # Confirm if input string is one of the listed options and ask again if not
+       
+    
+        if time_range not in ('month', 'day', 'both', 'none'):
+            print('\nYou didn\'t enter an available filter. Please enter month, day, both or none.'
+                  '\nReturning you to the original input request:')
+        else:
+            break
+    # Return user input as (str) lower case
+    return time_range
+
+
+time_range = get_time()
+time_range 
