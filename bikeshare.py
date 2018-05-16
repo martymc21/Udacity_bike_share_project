@@ -91,3 +91,30 @@ def get_time():
 
 time_range = get_time()
 time_range 
+
+
+###########
+
+def get_month():
+    '''Returns month between January and June, according to user input, while managing
+       incorrect input.
+
+    Args:
+        none.
+    Returns:
+        (int) month as its index of month_name ('January' = 1)
+    '''
+    # Ask user for input while managing incorrect input
+    while True:
+        month = input('\nWhich month? January, February, March, April, May, or June?\n').title()
+        # Confirm if input string is one of the listed months and ask again if not
+        if month not in month_name[:7]:
+            print('\nYou didn\'t enter an available month. Please enter one of the months listed.\n'
+                  'Returning you to the original input request:')
+        else:
+            break
+    # Return user input as (str) title case
+    return list(month_name).index(month)
+
+month = get_month()
+month
