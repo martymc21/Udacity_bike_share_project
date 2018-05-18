@@ -77,7 +77,7 @@ def get_time():
                             'not at all? Type "none" for no time filter.'
                             '(This next step will take some time.)\n').lower()
        
-    # Confirm if input string is one of the listed options and then redirects if string is not in list
+    # Confirms if the  input string is one of the listed options and then redirects  back to prompt if string is not in list
        
     
         if time_range not in ('month', 'day', 'both', 'none'):
@@ -85,7 +85,8 @@ def get_time():
                   '\nReturning you to the original input request:')
         else:
             break
-    # Return user input as (str) lower case
+  
+  # Returns the user input as (str) lower case
     return time_range
 
 
@@ -103,7 +104,8 @@ def get_month():
     Returns:
         (int) month as its index of month_name ('January' = 1)
     '''
-    # Ask user for input while managing incorrect input
+   
+  # Ask user for input while managing incorrect input
     while True:
         month = input('\nWhich month? January, February, March, April, May, or June?\n').title()
         # Confirm if input string is one of the listed months and ask again if not
@@ -112,7 +114,8 @@ def get_month():
                   'Returning you to the original input request:')
         else:
             break
-    # Return user input as (str) title case
+   
+  # Returns the user input as (str) title case
     return list(month_name).index(month)
 
 month = get_month()
@@ -130,11 +133,13 @@ def get_day():
         (int) day of the week as its index of day_name ('monday' = 0).
     '''
     
-    # Ask user for input while managing incorrect input
+    # Asks user for input 
     while True:
         day = input('\nWhich day? Please enter a day of the week from Sunday to Saturday.'
                     '\n').title()
-        # Confirm if input string is one of the days of the week and ask again if not
+      
+      # Confirms if input string is one of the days of the week and redirects back to orginal prompt if it isnt
+      
         if day not in day_name:
             print('\nYou didn\'t enter an available day. Please enter one of the '
                   'days of the week.\n'
