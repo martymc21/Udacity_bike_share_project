@@ -118,3 +118,35 @@ def get_month():
 
 month = get_month()
 month
+
+
+##########
+
+def get_day():
+    '''Asks the user for a day and returns the corresponding index, while managing
+       for incorrect input.
+
+    Args:
+        none.
+    Returns:
+        (int) day of the week as its index of day_name ('monday' = 0).
+    '''
+    
+    # Ask user for input while managing incorrect input
+    while True:
+        day = input('\nWhich day? Please enter a day of the week from Sunday to Saturday.'
+                    '\n').title()
+        # Confirm if input string is one of the days of the week and ask again if not
+        if day not in day_name:
+            print('\nYou didn\'t enter an available day. Please enter one of the '
+                  'days of the week.\n'
+                  'Returning you to the original input request:')
+        else:
+            break
+    # Return (int) of day's index in day_name
+    return list(day_name).index(day)
+
+
+
+day = get_day()
+day
