@@ -36,7 +36,7 @@ def get_city():
    """
     #get user input for city (chicago, new york city, washington). HINT use a while loop to handle invalid inputs
     
-    # Ask user for input while managing incorrect input
+    # Asks user for input 
     while True:
         city = input('\nHello! Let\'s explore some US bikeshare data!\n'
                      'Would you like to see data for Chicago, New York, or Washington?\n').lower()
@@ -70,14 +70,14 @@ def get_time():
     Returns:
         (str) inputted type of filter.
     '''
-    # Ask user for input while incorrect input
+    # Asks user for input 
     
     while True:
         time_range = input('\nWould you like to filter the data: by month, day, both or, '
                             'not at all? Type "none" for no time filter.'
                             '(This next step will take some time.)\n').lower()
        
-    # Confirm if input string is one of the listed options and ask again if not
+    # Confirm if input string is one of the listed options and then redirects if string is not in list
        
     
         if time_range not in ('month', 'day', 'both', 'none'):
@@ -96,8 +96,7 @@ time_range
 ###########
 
 def get_month():
-    '''Returns month between January and June, according to user input, while managing
-       incorrect input.
+    '''Returns month between January and June.
 
     Args:
         none.
@@ -123,8 +122,7 @@ month
 ##########
 
 def get_day():
-    '''Asks the user for a day and returns the corresponding index, while managing
-       for incorrect input.
+    '''Asks the user to choose a particular day 
 
     Args:
         none.
