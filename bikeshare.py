@@ -159,5 +159,3 @@ day
 
 ##creating dataframe
 
-df = pd.read_csv(city_data)
-df.head()
