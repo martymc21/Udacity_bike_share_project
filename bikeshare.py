@@ -155,3 +155,9 @@ def get_day():
 
 day = get_day()
 day
+
+
+##creating dataframe
+
+df = pd.read_csv(city_data)
+df.head()
