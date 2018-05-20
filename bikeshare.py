@@ -161,3 +161,5 @@ day
 df = pd.read_csv(city_data)
 df.head()
 
+#
+df = df.loc[df.start_time.dt.month == month]
