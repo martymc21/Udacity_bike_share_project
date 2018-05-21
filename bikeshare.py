@@ -161,5 +161,18 @@ day
 df = pd.read_csv(city_data)
 df.head()
 
-#
-df = df.loc[df.start_time.dt.month == month]
+df.info()
+###
+#renaming columns for formatting consistency
+df.rename(columns={'Start Time': 'start_time', 'End Time': 'end_time', 'Trip Duration': 'trip_duration', 'Start Station': 'start_station', 'End Station': 'end_station', 'User Type': 'user_type', 'Gender': 'gender', 'Birth Year':'birth_year'}, inplace = True)
+df.head()
+
+#converting 
+df['start_time'] = pd.to_datetime(df.start_time)
+
+#adding an additonal column for the day of the week
+df['weekday'] = df.start_time.apply(datetime.weekday)
+
+df = df.loc[df.weekday == day]
+df.head()
+
