@@ -73,3 +73,4 @@ Some versions of this project also include a Project Workspace page in the class
 
 ####resources used
 https://docs.python.org/2/library/calendar.html
+https://docs.python.org/2/library/functions.html#divmod
