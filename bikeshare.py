@@ -2,14 +2,15 @@
 
 ##imports
 
-from calendar import day_name, month_name
-from datetime import datetime
-from datetime import time as Time
-import time
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-% matplotlib inline
+import csv
+import numpy as np
+import time
+import calendar
+from datetime import datetime
+from calendar import day_name, month_name
+from datetime import time as Time
+
 
 
 ###
@@ -175,4 +176,89 @@ df['weekday'] = df.start_time.apply(datetime.weekday)
 
 df = df.loc[df.weekday == day]
 df.head()
+
+df.info()
+
+#####Computing statistics
+
+#most popular month
+def popular_month(df):
+   
+    #Count the number of rows that have a particular month value.
+   
+    trips_by_month = df.groupby('month')['start_time'].count()
+   
+    #Sorts the months and then returns a string showing the monthe with the highest value
+    
+    return "Most popular month for start time: " + calendar.month_name[int(trips_by_month.sort_values(ascending=False).index[0])]
+
+#most popular day
+def popular_day(df):
+    
+    #Count the number of rows that have a particular Day of Week value.
+    
+    trips_by_day = df.groupby('day')['start_time'].count()
+    
+    #Sorts the days and then returns a string showing the day with the highest value
+
+    return "Most popular day of the week for start time: " + calendar.day_name[int(trips_by_day_of_week.sort_values(ascending=False).index[0])]
+
+
+#most popular hour
+def popular_hour(df):
+    
+#Count the number of rows that have a particular Hour of Day value.
+    
+    trips_per_hour = df.groupby('Hour of Day')['start_time'].count()
+    
+#Sort the results highest to lowest and then return the hour of the day that was highest (first in sorted list)
+    
+    most_pop_hour = trips_per_hour.sort_values(ascending=False).index[0]
+    d = datetime.datetime.strptime(most_pop_hour, "%H")
+   
+    
+    return "Most popular hour of the day for start time: " + d.strftime("%I %p")
+  
+  #most popular station
+def popular_stations(df):
+    
+    start_station_counts = df.groupby('start_station')['start_station'].count()
+    
+    end_station_counts = df.groupby('end_station')['end_station'].count()
+    
+    start_stations_or = start_station_counts.sort_values(ascending=False)
+    
+    end_stations_or = end_station_counts.sort_values(ascending=False)
+    
+    total_trips = df['start_station'].count()
+    
+    most_pop_start_station = "\nMost popular start station: " + sorted_start_stations.index[0] + " (" + str(sorted_start_stations[0]) + " trips, " + '{0:.2f}%'.format(((sorted_start_stations[0]/total_trips) * 100)) + " of trips)"
+    
+    most_pop_end_station = "Most popular end station: " + sorted_end_stations.index[0] + " (" + str
+    
+    #total trip duration and average trip duration
+
+def trip_duration(df):
+    total_trip_duration = df['trip_duration'].sum()
+    
+    avg_trip_duration = df['trip_duration'].mean()
+    
+    m, s = divmod(total_trip_duration, 60)
+    
+    h, m = divmod(m, 60)
+    
+    d, h = divmod(h, 24)
+    
+    y, d = divmod(d, 365)
+    
+    
+    total_trip_duration = "\nTotal trip duration: %d years %02d days %02d hrs %02d min %02d sec" % (y, d, h, m, s)
+
+    m, s = divmod(avg_trip_duration, 60)
+   
+    h, m = divmod(m, 60)
+    
+    avg_trip_duration = "Average trip duration: %d hrs %02d min %02d sec" % (h, m, s)
+    
+    return [total_trip_duration, avg_trip_duration]
 
