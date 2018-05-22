@@ -11,6 +11,7 @@ import calendar
 from calendar import day_name, month_name
 from datetime import datetime
 from datetime import time as Time
+
 Step 2: user input
 
 
@@ -32,7 +33,6 @@ def get_city():
         city = input('\nHello! Let\'s explore some US bikeshare data!\n'
                      'Would you like to see data for Chicago, New York, or Washington?\n').lower()
         
-        # making sure that user inputs one of the cities listed
        
         if city not in ('chicago', 'new york', 'washington'):
             print('\nPlease enter one of the cities listed.\n')
@@ -64,14 +64,12 @@ def get_time():
     Returns:
         (str) 
     '''
-    # Ask user for input 
     
     while True:
         time_range = input('\nWould you like to filter the data: by month, day, both or, '
                             'not at all? Type "none" for no time filter.\n').lower()
                             
        
-    # making sure that user inputs one of the cities listed
        
     
         if time_range not in ('month', 'day', 'both', 'none'):
@@ -79,7 +77,6 @@ def get_time():
         else:
             break
    
-    # Return user input as (str) lower case
         
         return time_range
 
@@ -87,7 +84,7 @@ time_range = get_time()
 time_range 
 
 
-# gets user input for month (all, january, february, ... , june)
+#user input for month 
 
 def get_month():
     
@@ -108,7 +105,7 @@ month = get_month()
 month
 
 
-# get user selected day of week)
+# get user selected day of week
 
 
 def get_day():
@@ -138,6 +135,7 @@ df.head()
 
 
 #renaming columns for formatting consistency
+
 df.rename(columns={'Start Time': 'start_time', 'End Time': 'end_time', 'Trip Duration': 'trip_duration', 'Start Station': 'start_station', 'End Station': 'end_station', 'User Type': 'user_type', 'Gender': 'gender', 'Birth Year': 'birth_year'}, inplace = True)
 df.head()
 
@@ -194,7 +192,8 @@ def popular_hour(df):
 
     
     print("Most popular hour of the day for start time: " + d.strftime("%I %p"))
-Computing Statistics (Popular stations and trips)
+    
+    Computing Statistics (Popular stations and trips)
 
 
 # will return the most popular starting and ending stations
