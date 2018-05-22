@@ -302,22 +302,21 @@ def birth_years(df):
     return [oldest_birth_year, youngest_birth_year, most_pop_birth_year]
 
 
- def display_data(df):
-    '''Provides the user the option of viewing five lines of data, repeating this upon request
-       until the user responds with 'no'.
+ def raw_data(df):
+    '''Displays five lines of data until the user rresponds with the str 'no'.
 
     Args:
-        Pandas DataFrame.
+        Pandas DF
     Returns:
         none.
     '''
    
     i = 0
-    show_data = input('\nWould you like to see five lines of raw data? Type \'yes\' or \'no\'.\n')
-    while show_data.lower() == 'yes':
+    show_raw_data = input('\nWould you like to see five lines of raw data? Type \'yes\' or \'no\'.\n')
+    while show_raw_data.lower() == 'yes':
         print(df.iloc[i:i + 5])
         i += 5
-        show_data = input(
+        show_raw_data = input(
             '\nWould you like to see five more lines of raw data? Type \'yes\' or \'no\'.\n'
             )
         
