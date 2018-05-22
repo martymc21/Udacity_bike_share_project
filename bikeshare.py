@@ -262,3 +262,43 @@ def trip_duration(df):
     
     return [total_trip_duration, avg_trip_duration]
 
+  
+ # will return most popular trip
+def popular_trip(df):
+    trip_counts = df.groupby(['start_station', 'end_station'])['start_time'].count()
+    trip_stations_or = trip_counts.sort_values(ascending=False)
+    total_trips = df['start_station'].count()
+    
+    
+    return "Most popular trip: " + "\n  start station: " + str(sorted_trip_stations.index[0][0]) + "\n  End station: " + str(trip_stations_or.index[0][1]) + "\n  (" + str(trip_stations_or[0]) +  " trips, " + '{0:.2f}%'.format(((trip_stations_or[0]/total_trips) * 100)) + " of trips)"
+  
+  # will return user info
+def users(df):
+    user_type_counts = df.groupby('user_type')['user_type'].count()
+   
+    return user_type_counts
+  
+  def gender(df):
+    gender_counts = df.groupby('gender')['gender'].count()
+    
+    return gender_counts
+  
+  #will return oldest, youngest, and the year of birth occurring the most
+
+def birth_years(df):
+    oldest_birth_year = "Oldest birth year: " + str(int(df['birth_year'].min()))
+   
+    youngest_birth_year = "Most recent birth year: " + str(int(df['birth_year'].max()))
+    
+    birth_year_counts = df.groupby('birth_year')['birth_year'].count()
+    
+    birth_years_or = birth_year_counts.sort_values(ascending=False)
+    
+    total_trips = df['birth_year'].count()
+    
+    most_pop_birth_year = "Most popular birth year: " + str(int(birth_years_or.index[0])) + " (" + str(birth_years_or.iloc[0]) + " trips, " + '{0:.2f}%'.format(((birth_years_or.iloc[0]/total_trips) * 100)) + " of trips)"
+    
+    
+    return [oldest_birth_year, youngest_birth_year, most_pop_birth_year]
+
+
