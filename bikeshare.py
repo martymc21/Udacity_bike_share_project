@@ -94,14 +94,13 @@ def get_month():
     while True:
         month = input('\nWhich month? January, February, March, April, May, or June?\n').title()
         
-        # Confirms if input string is one of the listed months and ask again if not
         
         if month not in month_name[:7]:
             print('\nYou didn\'t enter an available month. Please enter one of the months listed.\n')
         else:
             break
    
-    # Return user input as (str) 
+   
     
     return list(month_name).index(month)
 
@@ -109,7 +108,7 @@ month = get_month()
 month
 
 
-# get user input for day of week (all, monday, tuesday, ... sunday)
+# get user selected day of week)
 
 
 def get_day():
@@ -118,7 +117,6 @@ def get_day():
         day = input('\nWhich day? Please enter a day of the week from Sunday to Saturday.'
                     '\n').title()
        
-    # Confirm if input string is one of the days of the week and ask again if not
         
         if day not in day_name:
             print('\nPlease enter one of the '
@@ -146,7 +144,7 @@ df.head()
 
 df['start_time'] = pd.to_datetime(df.start_time)
 
-#adding an additonal column to show the day of the week
+#adding an additonal column to show the day of the week as an int
 
 df['week_day'] = df.start_time.apply(datetime.weekday)
 
