@@ -176,10 +176,10 @@ def popular_month(df):
 
 # will return the most popular day
 def popular_day(df):
-    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+    day_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
                     'Saturday', 'Sunday']
     index = int(df['start_time'].dt.dayofweek.mode())
-    most_pop_day = days_of_week[index]
+    most_pop_day = day_of_week[index]
     
     
     print('The most popular day of week for start time is {}.'.format(most_pop_day))
@@ -210,6 +210,7 @@ def popular_stations(df):
 def popular_trip(df):
     most_pop_trip = df['traveled'].mode().to_string(index = False)
     print('The most popular trip is {}.'.format(most_pop_trip))
+
 Computing Statistics (Trip Duration)
 
 
