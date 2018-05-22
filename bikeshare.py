@@ -218,23 +218,27 @@ def popular_day(df):
     return "Most popular day of the week for start time: " + calendar.day_name[int(trips_per_day.sort_values(ascending=False).index[0])]
 
 
-#most popular hour
+# will return the most popular hour
 
 def popular_hour(df):
+    most_pop_hour = int(df['start_time'].dt.hour.mode())
     
- #counts the start time hour and then sorts the start hours and then returns a string showing the start time with the most trips
+    if most_pop_hour == 0:
+        am_pm = 'am'
+        pop_hour_readable = 12
     
-    trips_per_hour = df.groupby('Hour of Day')['start_time'].count()
+    elif 1 <= most_pop_hour < 13:
+        am_pm = 'am'
+        pop_hour_readable = most_pop_hour
     
-    
-    most_pop_hour = trips_per_hour.sort_values(ascending=False).index[0]
-    dt = datetime.datetime.strptime(most_pop_hour, "%H")
-   
+    elif 13 <= most_pop_hour < 24:
+        am_pm = 'pm'
+        pop_hour_readable = most_pop_hour - 12
     
     return "Most popular hour of the day for start time: " + d.strftime("%I %p")
-  
 
 # will return the most popular station
+
 def popular_stations(df):
     
     start_station_counts = df.groupby('start_station')['start_station'].count()
@@ -249,7 +253,7 @@ def popular_stations(df):
     
     most_pop_start_station = "\nMost popular start station: " + start_stations_or.index[0] + " (" + str(start_stations_or[0]) + " trips, " + '{0:.2f}%'.format(((start_stations_or[0]/total_trips) * 100)) + " of trips)"
     
-     most_popular_end_station = "Most popular end station: " + sorted_end_stations_or.index[0] + " (" + str(end_stations_or[0]) + " trips, " + '{0:.2f}%'.format(((end_stations_or[0]/total_trips) * 100)) + " of trips)"
+     most_popular_end_station = "Most popular end station: " + end_stations_or.index[0] + " (" + str(end_stations_or[0]) + " trips, " + '{0:.2f}%'.format(((end_stations_or[0]/total_trips) * 100)) + " of trips)"
     
     
     return [most_pop_start_station, most_pop_end_station]
