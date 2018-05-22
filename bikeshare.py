@@ -146,7 +146,7 @@ df['start_time'] = pd.to_datetime(df.start_time)
 
 df['week_day'] = df.start_time.apply(datetime.weekday)
 
-
+#adding 'traveled' column to use later
 df['traveled'] = df.start_station + " to " + df.end_station
 df.head()
 
