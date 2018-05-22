@@ -1,3 +1,5 @@
+#project is in progress
+
 Step 1: imports and initial functions
 
 
@@ -53,7 +55,7 @@ def get_city():
 city, city_data = get_city()
 city, city_data
     
-In [ ]:
+
 
 def get_time():
     '''Allows the user to select a specific amount of time to use as filter. 
