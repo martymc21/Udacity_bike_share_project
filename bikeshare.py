@@ -1,4 +1,4 @@
-#project is in progress
+#project is still in progress
 
 Step 1: imports and initial functions
 
