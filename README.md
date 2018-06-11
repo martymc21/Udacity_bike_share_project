@@ -53,7 +53,7 @@ most common trip from start to end (i.e., most frequent combination of start sta
 #3 Trip duration
 
 total travel time
-average travel time
+average travel 
 
 #4 User info
 
